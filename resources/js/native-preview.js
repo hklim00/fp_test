@@ -2,7 +2,6 @@
   'use strict';
 
   var frame = document.querySelector('.native-frame');
-  var time = document.querySelector('.native-time');
   var toast = document.querySelector('.native-toast');
   var toastTimer;
   var params = new URLSearchParams(window.location.search);
@@ -11,14 +10,6 @@
 
   if (requestedPage && allowedPage.test(requestedPage)) {
     frame.src = requestedPage;
-  }
-
-  function updateTime() {
-    time.textContent = new Intl.DateTimeFormat('ko-KR', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }).format(new Date());
   }
 
   function showToast(message) {
@@ -59,7 +50,4 @@
     var button = event.target.closest('[data-native-action]');
     if (button) runAction(button.dataset.nativeAction);
   });
-
-  updateTime();
-  window.setInterval(updateTime, 30000);
 })();
