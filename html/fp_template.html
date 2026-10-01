@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>페이지 제목 | FP 코칭 지원 AI Assistant</title>
+  <link rel="stylesheet" href="../resources/css/reset.css">
+  <link rel="stylesheet" href="../resources/css/base.css">
+  <link rel="stylesheet" href="../resources/css/fp.css">
+  <script src="../resources/js/pad-fit.js"></script>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header">
+    <a class="logo" href="fp_home.html"><h1>FP 코칭 지원 AI Assistant</h1></a>
+    <div class="fp_gnb">
+      <div class="fp_user"><strong>김교보 지원단장</strong><small>(강남지원단)</small></div>
+      <button class="fp_logout" type="button">로그아웃</button>
+    </div>
+    <!-- 공통 search -->
+    <div class="fp_content_search" role="search">
+      <input type="search" class="fp_search_input" placeholder="FP 이름·ID·지점 검색 (클릭하면 전체 목록)" aria-label="FP 검색" aria-expanded="false">
+      <ul class="fp_search_list">
+        <li class="fp_search_item selected">
+          <button type="button">
+            <strong>김교보<span>역삼지점</span></strong>
+            <span><em class="fp_status_badge top">최우선</em><small>코칭징후6/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>이생명<span>방배지점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후4/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>최연금<span>광화문센터점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후3/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>박대출<span>내수동지점</span></strong>
+            <span><em class="fp_status_badge normal">일반</em><small>코칭징후1/8</small></span>
+          </button>
+        </li>
+        <!-- show 클래스로 제어 -->
+        <!-- <li class="fp_search_empty">검색 결과가 없습니다.</li> -->
+      </ul>
+    </div>
+  </header>
+  <!--// header -->
+
+  <!-- contents -->
+  <main id="contents">
+    <!-- 공통 fp_page -->
+    <div class="fp_page">
+      <!-- 공통 fp_page_head -->
+      <div class="fp_page_head">
+        <div class="fp_title_row">
+          <span class="fp_title_group">
+            <h2>페이지 제목</h2>
+            <span class="fp_help_wrap">
+              <button type="button" class="fp_help_btn" aria-label="도움말">?</button>
+              <span class="fp_tooltip" role="tooltip">
+                <strong>도움말 제목</strong>
+                <span>도움말 내용을 입력합니다.</span>
+              </span>
+            </span>
+          </span>
+          <span class="fp_update">업데이트 일자 : YYYY.MM.DD</span>
+        </div>
+        <div class="fp_breadcrumb">
+          <span><a href="fp_home.html">홈</a></span>
+          <span>페이지 제목</span>
+        </div>
+      </div>
+      <!-- [260907] 개발: data-modal 값에 열 대상 모달의 id를 지정합니다. -->
+      <button type="button" class="btn btn_outline" data-modal="fpTemplateModal">모달 열기</button>
+    </div>
+  </main>
+
+  <!-- toast [260916_2] main 밖으로 이동 -->
+  <p class="fp_toast" role="status" hidden>면담 기록을 등록했어요.</p>
+  <!-- 토스트 표시: showToast(); -->
+
+  <!-- [260907] modal // [260909] main 밖으로 이동 -->
+    <div id="fpTemplateModal" class="fp_modal" role="dialog" aria-modal="true" hidden>
+      <div class="fp_modal_dialog">
+        <button type="button" class="fp_modal_close" data-modal-close aria-label="닫기"></button>
+        <h3>기본 모달</h3>
+        <div class="fp_modal_body">
+          <div class="fp_modal_description">
+            <p>기본 모달이 열린 상태에서 아래 버튼을 누르면 alert 모달이 한 번 더 표시됩니다.</p>
+          </div>
+        </div>
+        <div class="fp_modal_actions">
+          <button type="button" class="btn_l btn_outline" data-modal-close>닫기</button>
+          <button type="button" class="btn_l btn_primary" data-modal="fpTemplateAlertModal" data-modal-close>Alert 모달 열기</button>
+        </div>
+      </div>
+    </div>
+    <!-- stacked alert modal [260909] main 밖으로 이동 -->
+    <div id="fpTemplateAlertModal" class="fp_modal fp_alert_modal" role="alertdialog" aria-modal="true"
+      aria-label="저장 확인" hidden>
+      <div class="fp_modal_dialog">
+        <div class="fp_modal_body">
+          <div class="fp_modal_description">
+            <p>변경 사항을 저장할까요?</p>
+          </div>
+        </div>
+        <div class="fp_modal_actions">
+          <button type="button" class="btn_l btn_outline" data-modal-close>취소</button>
+          <button type="button" class="btn_l btn_primary" data-modal-close data-modal="fpTemplateAlertModal2">확인</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- stacked alert modal2 [260915]추가 -->
+    <div id="fpTemplateAlertModal2" class="fp_modal fp_alert_modal" role="alertdialog" aria-modal="true"
+      aria-label="저장 확인" hidden>
+      <div class="fp_modal_dialog">
+        <div class="fp_modal_body">
+          <div class="fp_modal_description">
+            <strong>최신 데이터로 요약하지 못했어요.</strong>
+            <p>데이터 업데이트가 완료되지 않아 이전 요약을 보여드려요.<br/>업데이트가 완료되면 최신 요약을 확인할 수 있어요.</p>
+          </div>
+        </div>
+        <div class="fp_modal_actions">
+          <button type="button" class="btn_l btn_primary" data-modal-close>확인</button>
+        </div>
+      </div>
+    </div>
+
+  <!--// contents -->
+  <!-- [260907] loading -->
+  <div class="fp_loading" role="status" hidden>
+    <span class="fp_loading_spinner" aria-hidden="true"></span>
+    <p>데이터를 불러오고 있어요.</p>
+  </div>
+  <!--
+    로딩 표시: $('.fp_loading').prop('hidden', false);
+    로딩 숨김: $('.fp_loading').prop('hidden', true);
+  -->
+
+  <script src="../resources/js/jquery-3.4.1.min.js"></script>
+  <script src="../resources/js/fp.js"></script>
+</body>
+
+</html>

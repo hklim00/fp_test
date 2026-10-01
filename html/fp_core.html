@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FP 코칭 핵심 | FP 코칭 지원 AI Assistant</title>
+  <link rel="stylesheet" href="../resources/css/reset.css">
+  <link rel="stylesheet" href="../resources/css/base.css">
+  <link rel="stylesheet" href="../resources/css/fp.css">
+  <script src="../resources/js/pad-fit.js"></script>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header">
+    <a class="logo" href="fp_home.html"><h1>FP 코칭 지원 AI Assistant</h1></a>
+    <div class="fp_gnb">
+      <div class="fp_user"><strong>김교보 지원단장</strong><small>(강남지원단)</small></div>
+      <button class="fp_logout" type="button">로그아웃</button>
+    </div>
+    <!-- 공통 search -->
+    <div class="fp_content_search" role="search">
+      <input type="search" class="fp_search_input" placeholder="FP 이름·ID·지점 검색 (클릭하면 전체 목록)" aria-label="FP 검색" aria-expanded="false">
+      <ul class="fp_search_list">
+        <li class="fp_search_item selected">
+          <button type="button">
+            <strong>김교보<span>역삼지점</span></strong>
+            <span><em class="fp_status_badge top">최우선</em><small>코칭징후6/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>이생명<span>방배지점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후4/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>최연금<span>광화문센터점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후3/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>박대출<span>내수동지점</span></strong>
+            <span><em class="fp_status_badge normal">일반</em><small>코칭징후1/8</small></span>
+          </button>
+        </li>
+        <!-- show 클래스로 제어 -->
+        <!-- <li class="fp_search_empty">검색 결과가 없습니다.</li> -->
+      </ul>
+    </div>
+  </header>
+  <!--// header -->
+  <!-- contents -->
+  <main id="contents">
+    <!-- 공통 fp_page -->
+    <div class="fp_page">
+      <div class="fp_page_head">
+        <div class="fp_title_row">
+          <span class="fp_title_group">
+            <h2>김교보 FP</h2>
+            <span class="fp_help_wrap">
+              <button type="button" class="fp_help_btn" aria-label="코칭 대상 기준 도움말">?</button>
+              <span class="fp_tooltip" role="tooltip">
+                <!-- [260907] -->
+                <span>선행지표 증감율은 직전 3개월 평균 대비 직전 1개월 실적 기준으로 산출됩니다.</span>
+              </span>
+            </span>
+          </span>
+          <span class="fp_update">업데이트 일자 : 2026.07.13</span>
+        </div>
+        <div class="fp_breadcrumb">
+          <span><a href="fp_home.html">홈</a></span>
+          <span><a href="fp_home.html">FP활동코칭</a></span>
+          <span><a href="fp_dashboard.html">지점 FP 현황</a></span>
+          <span>코칭내용 상세보기</span>
+        </div>
+      </div>
+      
+      <nav class="fp_analysis_tabs">
+        <a class="fp_tab_core active" href="fp_core.html">핵심</a>
+        <a class="fp_tab_detail" href="fp_detail.html">상세분석</a>
+        <a class="fp_tab_attr" href="fp_attr.html">속성분석</a>
+      </nav>
+
+      <ul class="fp_metric_grid six">
+        <li>
+          <span class="metric_item_tit">코칭 징후 발생건수</span>
+          <div class="fp_metric_value">
+            <b>6 <small>/ 8</small></b><em class="fp_status_badge top">최우선</em>
+          </div>
+        </li>
+        <li>
+          <span class="metric_item_tit">타사(GA) 유의 항목 건수</span>
+          <div class="fp_metric_value"><b>0 <small>/ 5</small></b></div>
+        </li>
+        <li>
+          <span class="metric_item_tit">오전교육 참여율</span>
+          <div class="fp_metric_value">
+            <b>82<small>%</small></b><em class="fp_change danger">15%</em>
+          </div>
+        </li>
+        <li>
+          <span class="metric_item_tit">청약서 발행 건수</span>
+          <div class="fp_metric_value">
+            <b>24<small>건</small></b><em class="fp_change danger">15%</em>
+          </div>
+        </li>
+        <li>
+          <span class="metric_item_tit">가입설계 건수</span>
+          <div class="fp_metric_value">
+            <b>38<small>건</small></b><em class="fp_change positive">15%</em>
+          </div>
+        </li>
+        <li>
+          <span class="metric_item_tit">평생든든 대상고객</span>
+          <div class="fp_metric_value"><b>47<small>명</small></b></div>
+        </li>
+      </ul>
+      <div class="fp_core_grid">
+        <section class="fp_panel">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">코칭 징후 현황</h3>
+            <span class="fp_help_wrap">
+              <button type="button" class="fp_help_btn" aria-label="코칭 징후 현황 도움말">?</button>
+              <span class="fp_tooltip" role="tooltip">
+                <!-- [260907] -->
+                <ul>
+                  <li><span>각 지표에 대해 증감율과 전월 수치를 확인 할 수 있습니다.<br/>※ 증감율 : 직전 1개월 지표 / 직전 2~4개월 평균지표</span></li>
+                  <li><span>50% 이상의 감소를 보일 경우 <small>노란색 하이라이트 표시</small></span></li>
+                </ul>
+              </span>
+            </span>
+          </div>
+          <!-- [260930] 순서변경 -->
+          <ul class="fp_signal_list">
+            <li>
+              <div class="fp_signal_item"><span>오전교육 참여율</span><em class="fp_change danger">78.9%</em><span>21건</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item alert"><span>귀사율</span><em class="fp_change danger">78.9%</em><span>59%</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item"><span>로그인 건수</span><em class="fp_change danger">78.9%</em><span>82회</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item alert"><span>가입설계 건수</span><em class="fp_change danger">78.9%</em><span>346천원</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item"><span>청약서발행 건수</span><em class="fp_change danger">22.9%</em><span>21건</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item"><span>판매 건수</span><em class="fp_change danger">78.9%</em><span>8건</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item"><span>총환산월초</span><em class="fp_change danger">22.9%</em><span>346천원</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item alert"><span>수수료</span><em class="fp_change danger">78.9%</em><span>12건</span></div>
+            </li>
+          </ul>
+        </section>
+        <section class="fp_panel">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">타사(GA) 유의 항목 발생 현황</h3>
+            <span class="fp_help_wrap">
+              <button type="button" class="fp_help_btn" aria-label="GA 타사 유의 항목 발생 현황 도움말">?</button>
+              <span class="fp_tooltip" role="tooltip">
+                <!-- [260907] -->
+                <span>타사(GA) 이동 가능성을 생각해 볼 수 있는 지표입니다.</span>
+                <ul>
+                  <li><span>직전 4개월 기준 발생 시 Y : </span><span>위촉증명서 발생, 불완전판매 발생, 청약철회 발생</span></li>
+                  <li><span>증감율 : </span><span>보장분석 실행, 평생든든 방문 비율</span><span>※ 증감율 : 직전 1개월 지표 / 직전 2~4개월 평균지표</span></li>
+                  <li><span>Y인경우 또는 증감율이 양수인 경우 <small>노란색 하이라이트 표시</small></span></li>
+                </ul>
+              </span>
+            </span>
+          </div>
+          <ul class="fp_signal_list">
+            <li>
+              <div class="fp_signal_item"><span>보장분석 건수</span><em class="fp_change positive">58.3%</em></div>
+            </li>
+            <li>
+              <div class="fp_signal_item alert"><span>평생든든 방문비율</span><em class="fp_change positive">58.3%</em></div>
+            </li>
+            <li>
+              <div class="fp_signal_item"><span>위촉증명서 발행</span><span>-</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item alert"><span>불완전판매 발생</span><span>-</span></div>
+            </li>
+            <li>
+              <div class="fp_signal_item"><span>청약철회 발생</span><span>-</span></div>
+            </li>
+          </ul>
+        </section>
+        <!-- [260907] AI 코칭 가이드 상태별 업데이트 -->
+        <!-- AI 코칭 가이드: 기본 노출 케이스 = 생성 완료(업데이트 실패로 직전 결과 유지) -->
+        <section class="fp_panel fp_ai_summary">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">AI 코칭 가이드</h3>
+            <button type="button" class="btn btn_outline">면담기록</button>
+          </div>
+          <div class="fp_ai_meta"><em>업데이트 실패</em><small>업데이트 일자 : 2026.07.08</small></div>
+          <div class="fp_ai_actions"><button type="button" class="btn btn_outline">🔍 확대보기</button>
+          </div>
+          <!-- [260930] -->
+          <div class="fp_ai_scroll">
+            <div class="fp_ai_content">
+              <strong class="ai_content_tit">[활동요약]</strong>
+              <div class="ai_content_txt">
+                <p>최근 <b>4개월</b> 기청약서 발행이 <b>-71%</b>로 계약 직전 단계가 크게 줄었고, 가입설계도 <b>-62%</b>로 설계 활동 전반이 함께 위축됐습니다.(룰 <b>5개</b>)</p>
+              </div>
+              <strong class="ai_content_tit">[계약속성]</strong>
+              <div class="ai_content_txt">
+                <p>면담에서는 일일활동계획을 기준으로 오늘 이번주 설계와 고객조회가 실제로 언제 누구에게 잡혀 있는지부터 함께 점검해 주세요.</p>
+              </div>
+              <strong class="ai_content_tit">[코칭가이드]</strong>
+              <div class="ai_content_txt">
+                <p>최근 <b>4개월</b> 기청약서 발행이 <b>-71%</b>로 계약 직전 단계가 크게 줄었고, 가입설계도 <b>-62%</b>로 설계 활동 전반이 함께 위축됐습니다.(룰 <b>5개</b>)</p>
+              </div>
+              <h4 class="fp_question_title"><span>추천 질문 예시</span></h4>
+              <!-- [260929] 추가 -->
+              <p class="question_sub_tit">대화의 시작을 돕는 참고 예시입니다. FP님의 상황에 맞게 자유롭게 활용해 보세요.</p>
+              <ul class="fp_question_list">
+                <li>요즘 시스템 로그인과 가입설계서 발행이 같이 줄어든 듯한데, 고객 조회나 설계 준비를 시작하려고 할 때 어디에서 가장 막히는지 편하게 이야기해 주실 수 있을까요?</li>
+                <li>청약서 발행이 줄면서 계약 직전까지 이어지는 흐름이 예전보다 끊기는 느낌인데, 최근에 상담 후 마무리 단계로 넘어갈 때 어떤 부분에서 어려움이 생기는지 같이 점검해 봐도 될까요?</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- AI 코칭 가이드 케이스 1: 생성 전 -->
+        <section class="fp_panel fp_ai_summary" style="display: none;">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">AI 코칭 가이드</h3><button type="button"
+              class="btn btn_outline">면담기록</button>
+          </div>
+          <div class="fp_ai_meta"><small>업데이트 일자 : 2026.07.08</small></div>
+          <div class="fp_ai_scroll">
+            <div class="fp_ai_state">
+              <p>이번 달 내용이 준비되었으니<br>AI 코칭 요약 보기 버튼을 눌러 확인해 보세요.</p>
+              <button type="button" class="btn btn_green_outline">AI 코칭 가이드 보기</button>
+              <!-- [260929] 추가 -->
+              <p class="motto_txt"><i><span>“코칭의 핵심은 데이터가 아닌 ‘사람'입니다</span>본 가이드를 참고하시되 FP님의 마음을 열고 변화를 이끌어내는 주체는 언제나 지점장님입니다."</i></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI 코칭 가이드 케이스 2: 생성 중 -->
+        <section class="fp_panel fp_ai_summary" style="display: none;">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">AI 코칭 가이드</h3>
+            <button type="button" class="btn btn_outline">면담기록</button>
+          </div>
+          <div class="fp_ai_meta"><small>업데이트 일자 : 2026.07.08</small></div>
+          <div class="fp_ai_scroll">
+            <div class="fp_ai_state">
+              <!-- state_load 추가 hidden 제거 -->
+              <div class="state_load">
+                <img src="../resources/images/load_kkok.gif" alt="" width="100%"/>
+                <!-- [260929] 추가 -->
+                <strong>AI가 코칭 내용을 요약 중 <span class="fp_ai_dots" aria-hidden="true"><span></span><span></span><span></span></span></strong>
+                <p>코칭 가이드가 생성되는 동안 핵심・상세・속성분석 지표를 먼저 확인해보세요.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI 코칭 가이드 케이스 3: 생성 실패 -->
+        <section class="fp_panel fp_ai_summary" style="display: none;">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">AI 코칭 가이드</h3>
+            <button type="button" class="btn btn_outline">면담기록</button>
+          </div>
+          <div class="fp_ai_meta"><em>업데이트 실패</em><small>업데이트 일자 : -</small></div>
+          <div class="fp_ai_scroll">
+            <div class="fp_ai_state">
+              <p>일시적인 장애로 AI 코칭을 생성하지 못했습니다.<br>잠시 후 다시 시도해 주세요.</p>
+              <button type="button" class="btn btn_green_outline">다시 시도</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <!--// contents -->
+  <script src="../resources/js/jquery-3.4.1.min.js"></script>
+  <script src="../resources/js/fp.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>FP 코칭 지원 · 태블릿 인앱 프리뷰</title>
+  <link rel="stylesheet" href="../resources/css/native-preview.css">
+</head>
+<body>
+  <div class="native-shell">
+    <div class="native-statusbar" aria-hidden="true">
+      <time class="native-time">--:--</time>
+      <div class="native-system-icons">
+        <svg viewBox="0 0 20 14"><path d="M1 5.5a13 13 0 0 1 18 0M4 8.5a8.7 8.7 0 0 1 12 0M7.2 11.3a4 4 0 0 1 5.6 0"/></svg>
+        <svg viewBox="0 0 18 14"><path d="M1 13V9h3v4M7.5 13V5h3v8M14 13V1h3v12"/></svg>
+        <span class="native-battery"><i></i></span>
+        <span class="native-battery-text">100%</span>
+      </div>
+    </div>
+
+    <header class="native-appbar">
+      <button class="native-icon-button" type="button" data-native-action="back" aria-label="뒤로가기">
+        <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="native-title">
+        <strong>FP 코칭 지원</strong>
+        <span>AI Assistant</span>
+      </div>
+      <button class="native-icon-button" type="button" data-native-action="home" aria-label="홈으로 이동">
+        <svg viewBox="0 0 24 24"><path d="m4 10 8-6 8 6v10h-6v-6h-4v6H4Z"/></svg>
+      </button>
+      <button class="native-icon-button" type="button" data-native-action="reload" aria-label="새로고침">
+        <svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 6M20 4v7h-7"/></svg>
+      </button>
+      <button class="native-icon-button" type="button" data-native-action="close" aria-label="닫기">
+        <svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
+    </header>
+
+    <main class="native-webview">
+      <iframe class="native-frame" src="fp_home.html" title="FP 코칭 지원 서비스 화면"></iframe>
+    </main>
+  </div>
+
+  <div class="native-toast" role="status" aria-live="polite"></div>
+  <script src="../resources/js/native-preview.js"></script>
+</body>
+</html>

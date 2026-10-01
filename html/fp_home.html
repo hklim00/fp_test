@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FP 코칭 지원 AI Assistant</title>
+  <link rel="stylesheet" href="../resources/css/reset.css">
+  <link rel="stylesheet" href="../resources/css/base.css">
+  <link rel="stylesheet" href="../resources/css/fp.css">
+  <!-- <script src="../resources/js/pad-fit.js"></script> -->
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header">
+    <a class="logo" href="fp_home.html"><h1>FP 코칭 지원 AI Assistant</h1></a>
+    <div class="fp_gnb">
+      <div class="fp_user"><strong>김교보 지원단장</strong><small>(강남지원단)</small></div>
+      <button class="fp_logout" type="button">로그아웃</button>
+    </div>
+    <!-- 공통 search -->
+    <div class="fp_content_search" role="search">
+      <input type="search" class="fp_search_input" placeholder="FP 이름·ID·지점 검색 (클릭하면 전체 목록)" aria-label="FP 검색" aria-expanded="false">
+      <ul class="fp_search_list">
+        <li class="fp_search_item selected">
+          <button type="button">
+            <strong>김교보<span>역삼지점</span></strong>
+            <span><em class="fp_status_badge top">최우선</em><small>코칭징후6/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>이생명<span>방배지점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후4/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>최연금<span>광화문센터점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후3/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>박대출<span>내수동지점</span></strong>
+            <span><em class="fp_status_badge normal">일반</em><small>코칭징후1/8</small></span>
+          </button>
+        </li>
+        <!-- show 클래스로 제어 -->
+        <!-- <li class="fp_search_empty">검색 결과가 없습니다.</li> -->
+      </ul>
+    </div>
+  </header>
+  <!--// header -->
+
+  <!-- contents -->
+  <main id="contents">
+    <!-- 공통 fp_page -->
+    <div class="fp_page fp_home">
+      <div class="fp_home_notice">
+        <p>해당 시스템은 현장 관리자 여러분들이 FP 분들의 영업 활동을 지원하고 우수 FP로 양성할 수 있도록 지원하기 위해 첫 발걸음을 떼는 파일럿 시스템입니다.<br />현장에서 활용해보시고 소중한
+          의견을 보내주시면 적극 반영하도록 하겠습니다.</p>
+      </div>
+      <div class="fp_home_cards">
+        <div class="fp_home_card active">
+          <a href="fp_director.html">
+            <!-- [260907] -->
+            <img src="../resources/images/home_card_01.png" alt="">
+            <strong class="fp_home_tit">FP 활동 코칭</strong>
+          </a>
+        </div>
+        <div class="fp_home_card">
+          <a href="#none">
+            <span class="fp_home_visual"><img src="../resources/images/home_card_02.png" alt=""></span>
+            <strong class="fp_home_tit">우수FP 양성</strong>
+          </a>
+        </div>
+        <div class="fp_home_card">
+          <a href="#none">
+            <span class="fp_home_visual"><img src="../resources/images/home_card_03.png" alt=""></span>
+            <strong class="fp_home_tit">신인FP 온보딩</strong>
+          </a>
+        </div>
+        <div class="fp_home_coming">
+          <!-- [260907] -->
+          <div class="fp_home_content">
+            <span><img src="../resources/images/ic_plus_w.svg" alt=""></span>
+            <strong>추후오픈</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!--// contents -->
+
+  <script src="../resources/js/jquery-3.4.1.min.js"></script>
+  <script src="../resources/js/fp.js"></script>
+</body>
+
+</html>
