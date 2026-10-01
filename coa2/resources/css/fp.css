@@ -1101,7 +1101,7 @@ body.fp_modal_open {
 /* page: home */
 .fp_home {
 	min-height: 100%;
-	width: min(100%, 1024px);
+	width: 100%;
 	margin: 0 auto;
 	padding: 4rem;
 }

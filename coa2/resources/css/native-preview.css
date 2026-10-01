@@ -131,14 +131,6 @@ button { font: inherit; }
   transform: translate(-50%, 0);
 }
 
-@media (min-width: 1366px) {
-  .native-shell {
-    max-width: 1366px;
-    margin: 0 auto;
-    box-shadow: 0 0 40px rgba(25, 38, 54, .18);
-  }
-}
-
 @media (max-width: 600px) {
   .native-icon-button[data-native-action="home"] { display: none; }
 }
