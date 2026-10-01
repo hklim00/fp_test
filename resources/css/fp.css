@@ -17,16 +17,25 @@ body {
 }
 #contents {
 	min-height: calc(100vh - 60px);
+	min-height: calc(100dvh - 60px);
 	background: var(--fp-color-white);
 }
 .fp_page {
+	display: flex;
+	flex-direction: column;
+	/* min-height: calc(100vh - 60px);
+	min-height: calc(100dvh - 60px); */
 	width: 100%;
-	min-width: 0;
-	max-width: none;
+	/* min-width: 0;
+	max-width: none; */
 	margin: 0 auto;
 	padding: 3rem;
 	color: var(--fp-color-text);
 	font-size: var(--fp-font-14);
+}
+.fp_core_page {
+	min-height: calc(100vh - 60px);
+	min-height: calc(100dvh - 60px);
 }
 #contents,
 .fp_page {
@@ -282,6 +291,7 @@ body {
 	color: var(--fp-color-text);
 	font-size: var(--fp-font-13);
 }
+/* 검색 결과 없음 항목은 모든 HTML에서 주석 상태이고 JS도 생성하지 않습니다.
 .fp_search_empty{
 	display: none;
 	text-align: center;
@@ -289,7 +299,7 @@ body {
 }
 .fp_search_empty.show{
 	display: block;
-}
+} */
 .header > .fp_content_search::after {
 	top: 11px;
 }
@@ -495,11 +505,12 @@ body {
 	margin-right: auto;
 	margin-left: 5px;
 }
+/* 차트 바깥 제목 글꼴/색: .fp_section_title과 아래 small, 공통 변수는 base.css */
 .fp_section_title {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	min-height: 3.6rem;
+	min-height: 36px;
 	margin: 0;
 	padding: 0.9rem 1.3rem;
 	border: 1px solid #e0e5eb;
@@ -594,6 +605,7 @@ body {
 .fp_table .btn {
 	margin: 0.3rem;
 }
+/* 현재 빈 테이블 행은 fp_dashboard.html에서 주석 처리되어 있습니다.
 .fp_table_empty {
 	padding: 6rem 2rem;
 	color: var(--fp-color-text-sub);
@@ -604,7 +616,7 @@ body {
 	height: 0;
 	padding: 0;
 	white-space: normal;
-}
+} */
 .fp_status_badge {
 	display: inline-flex;
 	align-items: center;
@@ -677,11 +689,11 @@ body {
 	overflow: auto;
 	border-top: 1px solid var(--fp-color-detail-grid);
 }
+/* 현재 HTML과 앱 JS에서 .unit 클래스를 사용하지 않습니다.
 .unit {
 	display: inline-block;
 	margin-left: 5px;
-	/* min-width: 3rem; */
-}
+} */
 
 /* tab */
 .fp_analysis_tabs {
@@ -694,8 +706,8 @@ body {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 4.2rem;
-	min-width: 16rem;
+	min-height: 42px;
+	min-width: 160px;
 	padding: 1.2rem 3rem;
 	border: 0;
 	border-radius: 9px 9px 0 0;
@@ -708,10 +720,10 @@ body {
 }
 .fp_analysis_tabs a::before {
 	content: "";
-	flex: 0 0 2rem;
-	width: 2rem;
-	height: 2rem;
-	margin-right: 0.9rem;
+	flex: 0 0 20px;
+	width: 20px;
+	height: 20px;
+	margin-right: 9px;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -740,6 +752,8 @@ body {
 	background: var(--fp-color-active);
 }
 
+/* 차트 바깥 범례 글꼴/색: 아래 .fp_legend; 범례 표식 색: .fp_legend i.* */
+/* 캔버스 안 축/날짜/수치/선/막대 글꼴과 색은 resources/js/fp_charts.js에서 설정 */
 /* chart ui */
 .fp_chart_block + .fp_chart_block {
 	margin-top: 1.9rem;
@@ -747,7 +761,7 @@ body {
 .fp_chart_canvas {
 	position: relative;
 	width: 100%;
-	height: 18rem;
+	height: 150px;
 }
 .fp_segmented_control {
 	display: flex;
@@ -1083,7 +1097,7 @@ body.fp_modal_open {
 	min-height: 100%;
 	width: min(100%, 1024px);
 	margin: 0 auto;
-	/* padding: 4rem; */
+	padding: 4rem;
 }
 .fp_home_notice {
 	margin-bottom: 6rem;
@@ -1297,7 +1311,7 @@ body.fp_modal_open {
 .fp_stat_head {
 	position: relative;
 	min-height: 28px;
-	align-items: center;
+	/* align-items: center; 위의 .fp_stat_head, .fp_stat_summary 공통 규칙과 중복 */
 	justify-content: space-between;
 	gap: 1.2rem;
 	flex-wrap: wrap;
@@ -1367,11 +1381,7 @@ body.fp_modal_open {
 	align-items: stretch;
 	min-width: 0;
 }
-.fp_dashboard_grid > :first-child {
-	flex: 1 1 0;
-	min-width: 0;
-}
-.fp_dashboard_grid > :last-child {
+.fp_dashboard_grid > *{
 	flex: 1 1 0;
 	min-width: 0;
 }
@@ -1385,7 +1395,7 @@ body.fp_modal_open {
 	min-height: 0;
 }
 .fp_chart_column .fp_panel {
-	min-height: 28.4rem;
+	min-height: 28rem;
 }
 .fp_dashboard_grid > .fp_panel:first-child {
 	display: flex;
@@ -1417,8 +1427,6 @@ body.fp_modal_open {
 	overflow: hidden;
 }
 .fp_dashboard {
-	display: flex;
-	flex-direction: column;
 	height: calc(100vh - 60px);
 	height: calc(100dvh - 60px);
 	overflow: hidden;
@@ -1493,7 +1501,7 @@ body.fp_modal_open {
 }
 .fp_core_grid {
 	display: flex;
-	flex: 0 0 auto;
+	flex: 1 1 auto;
 	flex-wrap: wrap;
 	align-items: stretch;
 	gap: 2rem;
@@ -1502,20 +1510,48 @@ body.fp_modal_open {
 	display: flex;
 	flex: 0 0 calc((100% - 4rem) / 3);
 	flex-direction: column;
-	max-height: 54rem;
-	overflow: hidden;
+	max-height: 48rem;
+	/* overflow: hidden; */
+}
+@media (min-width: 1025px) {
+	.fp_core_grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-rows: max-content;
+		align-content: start;
+	}
+	.fp_core_grid > :not(:first-child) {
+		contain: size;
+		max-height: 100%;
+	}
 }
 .fp_core_grid .fp_panel_head,
 .fp_core_grid .fp_ai_meta,
 .fp_core_grid .fp_ai_actions {
 	flex: 0 0 auto;
 }
+@media (min-width: 1024px) {
+	.fp_core_page {
+		height: calc(100vh - 60px);
+		height: calc(100dvh - 60px);
+	}
+	.fp_core_grid {
+		min-height: 0;
+		flex-wrap: nowrap;
+	}
+	.fp_core_grid > * {
+		min-height: 0;
+	}
+	.fp_core_grid .fp_signal_list {
+		overflow-y: auto;
+	}
+}
 .fp_signal_list {
 	flex: 1 1 auto;
 	min-height: 0;
-	overflow-y: visible;
-	overscroll-behavior-y: contain;
-	scrollbar-gutter: stable;
+	/* overflow-y: visible; 기본값이며 이 목록은 스크롤 컨테이너가 아닙니다. */
+	/* overscroll-behavior-y: contain; 스크롤 컨테이너가 아니어서 적용되지 않습니다. */
+	/* scrollbar-gutter: stable; overflow가 visible이면 공간을 예약하지 않습니다. */
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -1591,7 +1627,7 @@ body.fp_modal_open {
 	margin-bottom: 1.5rem;
 }
 .fp_ai_scroll {
-	flex: 1 1 0;
+	flex: 1 1 auto;
 	min-height: 0;
 	overflow-y: auto;
 	overscroll-behavior-y: contain;
@@ -1726,6 +1762,7 @@ body.fp_modal_open {
 	flex: 1 1 0;
 	min-width: 0;
 }
+/* 상세분석 추이 차트 제목 글꼴/색; 날짜 눈금은 fp_charts.js의 drawTrendCharts() */
 .fp_line_charts h4 {
 	display: flex;
 	align-items: center;
@@ -1752,7 +1789,7 @@ body.fp_modal_open {
 .fp_spark_canvas {
 	position: relative;
 	width: 100%;
-	height: 15rem;
+	height: 180px;
 }
 .fp_bar_chart,
 .fp_spark_chart {
@@ -1773,7 +1810,7 @@ body.fp_modal_open {
 }
 .fp_trend_panel .fp_line_charts {
 	flex-wrap: wrap;
-	gap: 3rem 0;
+	gap: 30px 0;
 }
 .fp_trend_panel .fp_line_charts > * {
 	flex: 0 0 50%;
@@ -1808,14 +1845,13 @@ body.fp_modal_open {
 	display: block;
 }
 .fp_mini_metrics > li > span {
-	margin-bottom: 1rem;
-	padding: 0.4rem 0.8rem;
+	margin-bottom: 10px;
 	border-radius: 5px;
 	background: #5380d8;
 	color: var(--fp-color-white);
 	font-size: var(--fp-font-13);
 	font-weight: var(--fp-weight-bold);
-	line-height: 18px;
+	line-height: 30px;
 	text-align: center;
 }
 .fp_mini_metrics .metrics_inner {
@@ -1924,9 +1960,9 @@ body.fp_modal_open {
 	margin: 3rem 0 2rem;
 }
 .fp_attr_chart {
-	height: 30rem;
+	height: 270px;
 	min-height: 0;
-	padding-top: 2rem;
+	padding-top: 10px;
 }
 .fp_attr_chart canvas,
 .fp_demo_canvas canvas {
@@ -1948,7 +1984,7 @@ body.fp_modal_open {
 	/* margin-bottom: 1.4rem; */
 }
 .fp_demo_canvas {
-	height: 24rem;
+	height: 240px;
 	min-height: 0;
 }
 .fp_demographic label {
@@ -2205,42 +2241,13 @@ body.fp_modal_open {
 		animation: none;
 	}
 }
+html[data-fp-fitted] .fp_core_grid > *{
+	max-height: 56rem;
+}
+html[data-fp-fitted] .fp_analysis_tabs a{
+	min-height: 38px;
+}
 
-/* @media (min-width: 1024px) { */
-	html[data-fp-fitted] .fp_chart_column > .fp_panel {
-		display: flex;
-		flex-direction: column;
-		min-height: 0;
-		overflow: hidden;
-	}
-
-	html[data-fp-fitted] .fp_chart_column > .fp_panel:first-child {
-		height: 31.3rem;
-	}
-
-	html[data-fp-fitted] .fp_chart_column > .fp_panel:last-child {
-		height: 28.4rem;
-	}
-
-	html[data-fp-fitted] .fp_chart_column .fp_panel_title {
-		display: -webkit-box;
-		overflow: hidden;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
-	}
-
-	html[data-fp-fitted] .fp_chart_column .fp_panel_head,
-	html[data-fp-fitted] .fp_chart_column .fp_benchmark,
-	html[data-fp-fitted] .fp_chart_column .fp_legend {
-		flex: 0 0 auto;
-	}
-
-	html[data-fp-fitted] .fp_chart_column .fp_chart {
-		flex: 1 1 auto;
-		height: auto;
-		min-height: 0;
-	}
-/* } */
 
 @media (max-width: 1023px) {
 	body {
@@ -2342,7 +2349,6 @@ body.fp_modal_open {
 	.fp_dashboard {
 		height: calc(100vh - var(--fp-tablet-header-height));
 		height: calc(100dvh - var(--fp-tablet-header-height));
-		overflow: hidden;
 	}
 
 	.fp_dashboard > .fp_panel {
@@ -2358,6 +2364,8 @@ body.fp_modal_open {
 
 	/* page layout */
 	.fp_page {
+		min-height: calc(100vh - var(--fp-tablet-header-height));
+		min-height: calc(100dvh - var(--fp-tablet-header-height));
 		padding-top: 2.4rem;
 		padding-right: clamp(1.6rem, 2.5vw, 3.2rem);
 		padding-left: clamp(1.6rem, 2.5vw, 3.2rem);
@@ -2445,16 +2453,39 @@ body.fp_modal_open {
 		flex: 1 1 0;
 		min-width: 0;
 	}
-
+	html[data-fp-fitted] .fp_core_grid > * {
+    max-height: none;
+	}
 	.fp_core_grid > * {
 		flex-basis: calc((100% - 2rem) / 2);
+	}
+
+	.fp_core_grid > .fp_ai_summary {
+		flex-basis: 100%;
 	}
 
 	.fp_panel {
 		padding: clamp(1.6rem, 2.5vw, 2.8rem);
 	}
+	.fp_core_grid > *{
+		max-height: none;
+	}
 }
 @media (max-width: 767px) {
+	.fp_core_grid{
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+	.fp_core_grid > *{
+		max-height: none;
+	}
+		html[data-fp-fitted] .fp_core_grid > * {
+    max-height: none;
+	}
+	.fp_panel.fp_ai_summary{
+		flex: 1;
+	}
+	.fp_core_grid 
 	.fp_modal {
 		padding: 1.6rem;
 	}
@@ -2570,6 +2601,10 @@ body.fp_modal_open {
 		flex-basis: 100%;
 		padding-right: 0;
 		padding-left: 0;
+		border-left: 0;
+	}
+	.fp_trend_panel .fp_line_charts > :nth-child(even) {
+    padding-left: 0;
 		border-left: 0;
 	}
 }

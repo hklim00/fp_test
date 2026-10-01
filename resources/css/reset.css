@@ -192,7 +192,7 @@ input[type='search'] {
 	-webkit-border-radius: 3px;
 }
 select {
-	order: none;
+	/* order: none; order 속성에 none 값은 유효하지 않아 적용되지 않음 */
 	outline: none;
 	width: 100%;
 	box-sizing: border-box;

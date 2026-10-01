@@ -1,4 +1,3 @@
-// FP 차트에서 공통으로 사용하는 색상값입니다.
 var colors = {
 	primary: '#2865f1',
 	green: '#ade060',
@@ -192,7 +191,7 @@ function comparisonValueLabels(unit) {
 	};
 }
 
-// 가로 막대 차트의 값을 오른쪽에 표시하는 플러그인
+// 가로 막대 차트의 값을 오른쪽 여백 안에서 우측 정렬하는 플러그인
 function horizontalValueLabels() {
 	return {
 		id: 'fpHorizontalValueLabels',
@@ -201,7 +200,7 @@ function horizontalValueLabels() {
 			context.save();
 			context.fillStyle = colors.text;
 			context.font = '600 14px Malgun Gothic';
-			context.textAlign = 'left';
+			context.textAlign = 'right';
 			context.textBaseline = 'middle';
 			$.each(chart.data.datasets, function (datasetIndex, dataset) {
 				var meta = chart.getDatasetMeta(datasetIndex);
@@ -209,7 +208,7 @@ function horizontalValueLabels() {
 				$.each(meta.data, function (index, bar) {
 					context.fillText(
 						dataset.data[index] + ' %',
-						chart.chartArea.right + 8,
+						chart.width - 16,
 						bar.y,
 					);
 				});
@@ -229,10 +228,10 @@ function productLabels() {
 			context.save();
 			context.fillStyle = colors.text;
 			context.font = '14px Malgun Gothic';
-			context.textAlign = 'left';
+			context.textAlign = 'right';
 			context.textBaseline = 'middle';
 			$.each(chart.data.labels, function (index, label) {
-				context.fillText(label, yScale.left + 12, yScale.getPixelForTick(index));
+				context.fillText(label, yScale.right - 20, yScale.getPixelForTick(index));
 			});
 			context.restore();
 		},
@@ -262,7 +261,7 @@ function productBenchmarks(benchmarks) {
 			var xScale = chart.scales.x;
 			context.save();
 			context.font = '600 14px Malgun Gothic';
-			context.textAlign = 'left';
+			context.textAlign = 'right';
 			context.textBaseline = 'middle';
 			$.each(chart.getDatasetMeta(0).data, function (index, bar) {
 				var markerX = xScale.getPixelForValue(benchmarks[index]);
@@ -271,7 +270,7 @@ function productBenchmarks(benchmarks) {
 				context.fillStyle = colors.text;
 				context.fillText(
 					chart.data.datasets[0].data[index] + ' %',
-					chart.chartArea.right + 18,
+					chart.width - 28,
 					bar.y,
 				);
 			});
@@ -301,7 +300,7 @@ function drawTenureChart(root, data) {
 	var $canvas = $(root).find('#fpTenureChart');
 	if (!$canvas.length || !data) return;
 	var options = baseOptions();
-	options.layout = { padding: { top: 18, right: 20, left: 40 } };
+	options.layout = { padding: { top: 36, right: 20, left: 40 } };
 	options.scales.y.max = 100;
 	options.scales.x.offset = true;
 	options.scales.x.border = { display: false };
@@ -466,16 +465,15 @@ function drawTrendCharts(root, data, chartIds) {
 			var unit = chartData.type === 'count' ? '건' : '%';
 			var options = baseOptions();
 			options.layout = { padding: { top: 18, right: 26, left: 6 } };
-			options.scales.x.ticks.display = false;
-			options.scales.x.border = { display: true, color: '#dfe5eb', width: 1 };
-			options.scales.x.title = {
-				display: true,
-				align: 'start',
-				text: '단위: ' + unit,
-				color: colors.text,
-				font: { family: 'Malgun Gothic', size: 13, weight: 'normal' },
-				padding: { top: 5 },
+			// 상세분석의 모든 추이 차트 날짜 글꼴/색상: 각 데이터 지점 아래에 표시
+			options.scales.x.ticks = {
+				autoSkip: false,
+				maxRotation: 45,
+				minRotation: 0,
+				color: '#333',
+				font: { family: 'Malgun Gothic', size: 14 },
 			};
+			options.scales.x.border = { display: true, color: '#dfe5eb', width: 1 };
 			options.scales.y.beginAtZero = false;
 			options.scales.y.suggestedMin = 70;
 			options.scales.y.suggestedMax = 90;
@@ -519,7 +517,8 @@ function drawAttributeCharts(root, productData) {
 	if ($ratioCanvas.length && productData) {
 		var ratioOptions = baseOptions();
 		ratioOptions.indexAxis = 'y';
-		ratioOptions.layout = { padding: { right: 56 } };
+		// 막대 끝과 우측 % 값 사이의 간격을 좁힙니다.
+		ratioOptions.layout = { padding: { left: 14, right: 80 } };
 		ratioOptions.scales.x.min = 0;
 		ratioOptions.scales.x.max = 100;
 		ratioOptions.scales.x.display = false;
@@ -532,7 +531,7 @@ function drawAttributeCharts(root, productData) {
 			font: { family: 'Malgun Gothic', size: 14 },
 		};
 		ratioOptions.scales.y.afterFit = function (scale) {
-			scale.width = 108;
+			scale.width = 118;
 		};
 		ratioOptions.plugins.tooltip.callbacks = {
 			label: function (context) {
@@ -573,7 +572,7 @@ function drawDemographCharts(root, demographicData) {
 			if (!canvas || !data) return;
 			var options = baseOptions();
 			options.indexAxis = 'y';
-			options.layout = { padding: { right: 48 } };
+			options.layout = { padding: { right: 80 } };
 			options.scales.x.min = 0;
 			options.scales.x.max = 100;
 			options.scales.x.display = false;
