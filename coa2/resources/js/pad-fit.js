@@ -22,8 +22,7 @@
 	}
 
 	function shouldScalePad() {
-		const minLayoutDimension = Math.min(window.innerWidth, window.innerHeight);
-		return isPadDevice() && minLayoutDimension >= 600;
+		return isPadDevice();
 	}
 
 	function getViewportHeight() {

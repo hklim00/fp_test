@@ -13,15 +13,8 @@ function isPadDevice() {
 	return isIPad || isAndroidTablet || isTouchOnlyDevice;
 }
 
-function shouldFitViewport(vw, vh) {
-	return isTabletFitViewport(vw, vh);
-}
-
-function isTabletFitViewport(vw, vh) {
-	const minDim = Math.min(vw, vh);
-
-	// 기기별 viewport 너비가 달라질 수 있으므로 최대 해상도로 제한하지 않습니다.
-	return isPadDevice() && minDim >= 600;
+function shouldFitViewport() {
+	return isPadDevice();
 }
 
 function getViewportHeight() {
@@ -49,7 +42,7 @@ function fitFontSize() {
 	const referenceHeaderHeight = 60;
 	const referenceContentHeight = 970 - referenceHeaderHeight;
 
-	if (!shouldFitViewport(vw, vh)) {
+	if (!shouldFitViewport()) {
 		const hadFit = root.hasAttribute('data-fp-fitted');
 		root.style.removeProperty('font-size');
 		root.style.removeProperty('--fp-fit-scale');
