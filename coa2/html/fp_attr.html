@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FP 코칭 속성분석 | FP 코칭 지원 AI Assistant</title>
+  <link rel="stylesheet" href="../resources/css/reset.css">
+  <link rel="stylesheet" href="../resources/css/base.css">
+  <link rel="stylesheet" href="../resources/css/fp.css">
+  <script src="../resources/js/pad-fit.js"></script>
+</head>
+
+<body>
+  <!-- header -->
+  <header class="header">
+    <a class="logo" href="fp_home.html"><h1>FP 코칭 지원 AI Assistant</h1></a>
+    <div class="fp_gnb">
+      <div class="fp_user"><strong>김교보 지원단장</strong><small>(강남지원단)</small></div>
+      <button class="fp_logout" type="button">로그아웃</button>
+    </div>
+    <!-- 공통 search -->
+    <div class="fp_content_search" role="search">
+      <input type="search" class="fp_search_input" placeholder="FP 이름·ID·지점 검색 (클릭하면 전체 목록)" aria-label="FP 검색" aria-expanded="false">
+      <ul class="fp_search_list">
+        <li class="fp_search_item selected">
+          <button type="button">
+            <strong>김교보<span>역삼지점</span></strong>
+            <span><em class="fp_status_badge top">최우선</em><small>코칭징후6/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>이생명<span>방배지점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후4/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>최연금<span>광화문센터점</span></strong>
+            <span><em class="fp_status_badge highest">우선</em><small>코칭징후3/8</small></span>
+          </button>
+        </li>
+        <li class="fp_search_item">
+          <button type="button">
+            <strong>박대출<span>내수동지점</span></strong>
+            <span><em class="fp_status_badge normal">일반</em><small>코칭징후1/8</small></span>
+          </button>
+        </li>
+        <!-- show 클래스로 제어 -->
+        <!-- <li class="fp_search_empty">검색 결과가 없습니다.</li> -->
+      </ul>
+    </div>
+  </header>
+  <!--// header -->
+
+  <!-- contents -->
+  <main id="contents">
+    <!-- 공통 fp_page -->
+    <div class="fp_page">
+      <div class="fp_page_head">
+        <div class="fp_title_row">
+          <span class="fp_title_group">
+            <h2>김교보 FP</h2>
+            <span class="fp_help_wrap">
+              <button type="button" class="fp_help_btn" aria-label="코칭 대상 기준 도움말">?</button>
+              <span class="fp_tooltip" role="tooltip">
+                <!-- [260907] -->
+                <span>선행지표 증감율은 직전 3개월 평균 대비 직전 1개월 실적 기준으로 산출됩니다.</span>
+              </span>
+            </span>
+          </span>
+          <span class="fp_update">업데이트 일자 : 2026.07.13</span>
+        </div>
+        <div class="fp_breadcrumb">
+          <span><a href="fp_home.html">홈</a></span>
+          <span><a href="fp_home.html">FP활동코칭</a></span>
+          <span><a href="fp_dashboard.html">지점 FP 현황</a></span>
+          <span>코칭내용 상세</span>
+        </div>
+      </div>
+      <nav class="fp_analysis_tabs" aria-label="FP 분석 메뉴">
+        <a class="fp_tab_core" href="fp_core.html">핵심</a>
+        <a class="fp_tab_detail" href="fp_detail.html">상세분석</a>
+        <a class="fp_tab_attr active" href="fp_attr.html">속성분석</a>
+      </nav>
+      <ul class="fp_metric_grid six">
+        <li>
+          <span class="metric_item_tit">매니저</span>
+          <div class="fp_metric_value"><b>A2</b></div>
+        </li>
+        <li>
+          <span class="metric_item_tit">위촉구분</span>
+          <div class="fp_metric_value"><b>경력위촉</b></div>
+        </li>
+        <li>
+          <span class="metric_item_tit">위촉년월</span>
+          <div class="fp_metric_value"><b>2022<small>년</small></b><b>4<small>월</small></b></div>
+        </li>
+        <li>
+          <span class="metric_item_tit">차월</span>
+          <div class="fp_metric_value"><b>52<small>차월</small></b></div>
+        </li>
+        <li>
+          <span class="metric_item_tit">나이</span>
+          <div class="fp_metric_value"><b>35<small>세</small></b></div>
+        </li>
+        <li>
+          <span class="metric_item_tit">도입자</span>
+          <div class="fp_metric_value"><b>-</b></div>
+        </li>
+      </ul>
+      <div class="fp_attr_grid">
+        <section class="fp_panel">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">계약/상품 분석</h3>
+            <!-- [260907] -->
+            <span class="fp_help_wrap">
+              <button type="button" class="fp_help_btn" aria-label="계약 상품 분석 도움말">?</button>
+              <span class="fp_tooltip" role="tooltip">
+                <span>해당 FP의 재적 기간 동안 주요(유지) 계약 현황 정보입니다.</span>
+                <ul>
+                  <li><span>총기준 : </span><span>조회 기준 시점 전체 기간 합계</span></li>
+                  <li><span>월평균 : </span><span>조회 기준 시점 직전 1년 평균</span></li>
+                  <li><span>합계유지보험료 : </span><span>수금 FP 기준, 납입주기가 월납 계약 보험료 합계</span></li>
+                  <li><span>FP명의계약보험료 : </span><span>수수료 공제 기준</span></li>
+                  <li><span>상품군계약비중 : </span><span>조회 기준 시점 전체 기간 모집 계약건</span><span>※ 세로선은 동일차월군의 평균 비중임(1~12/13~24차월 초과)</span></li>
+                </ul>
+              </span>
+            </span>
+          </div>
+          <ul class="fp_mini_metrics">
+            <li>
+              <span>모집 계약 건수</span>
+              <div class="metrics_inner">
+                <dl>
+                  <dt><b>총(전체기간)</b></dt>
+                  <dd>479<small>건</small></dd>
+                </dl>
+                <dl>
+                  <dt>월평균(직전1년)</dt>
+                  <dd>479<small>건</small></dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <span>전입고객 신계약건수</span>
+              <div class="metrics_inner">
+                <dl>
+                  <dt><b>총(전체기간)</b></dt>
+                  <dd>479<small>건</small></dd>
+                </dl>
+                <dl>
+                  <dt>월평균(직전1년)</dt>
+                  <dd>479<small>건</small></dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <span>건당 평균보험료</span>
+              <div class="metrics_inner">
+                <dl>
+                  <dt><b>총(전체기간)</b></dt>
+                  <dd>12,999<small>만원</small></dd>
+                </dl>
+                <dl>
+                  <dt>월평균(직전1년)</dt>
+                  <dd>4,000<small>만원</small></dd>
+                </dl>
+              </div>
+            </li>
+          </ul>
+          <div class="fp_wide_metric">
+            <b>합계 유지보험료</b><strong>1,193 <small>천원</small></strong>
+          </div>
+          <div class="fp_wide_metric">
+            <b>FP명의 계약보험료</b><strong>932 <small>천원</small></strong>
+          </div>
+          <div class="fp_section_title">
+            <h4>상품군 계약 비중</h4>
+            <small>(종신/건강/순수건강/기타 - 동일차월군 평균 대비)</small>
+          </div>
+          <!-- [260907] 클래스명 -->
+          <div class="fp_attr_chart"><canvas id="fpProductRatioChart" role="img" aria-label="상품군 계약 비중"></canvas>
+          </div>
+          <div class="fp_legend"><span><i class="benchmark"></i>세로선 : 동일차월군 평균</span></div>
+        </section>
+        <section class="fp_panel">
+          <div class="fp_panel_head">
+            <h3 class="fp_panel_title">고객 분석</h3>
+          </div>
+          <ul class="fp_mini_metrics">
+            <li class="fp_mini_simple"><span>소관 고객수</span>
+              <div class="metrics_inner">
+                <dl>
+                  <dt class="fp_sr_only">소관 고객수</dt>
+                  <dd>79<small>명</small></dd>
+                </dl>
+              </div>
+            </li>
+            <li class="fp_mini_simple"><span>모집 고객수</span>
+              <div class="metrics_inner">
+                <dl>
+                  <dt class="fp_sr_only">모집고객수</dt>
+                  <dd>24<small>명</small></dd>
+                </dl>
+              </div>
+            </li>
+            <li class="fp_mini_simple"><span>전입 고객수</span>
+              <div class="metrics_inner">
+                <dl>
+                  <dt class="fp_sr_only">전입고객수</dt>
+                  <dd>30<small>명</small></dd>
+                </dl>
+              </div>
+            </li>
+          </ul>
+          <div class="fp_wide_metric"><b>2~13회차 유지율</b><strong>79 <small>%</small></strong></div>
+          <div class="fp_wide_metric"><b>2~25회차 유지율</b><strong>47 <small>%</small></strong></div>
+          <div class="fp_section_title">
+            <h4>연령대 및 직업 비중</h4>
+          </div>
+          <div class="fp_segmented_control" role="group" aria-label="고객 구분">
+            <button type="button" class="active" aria-pressed="true">계약자</button>
+            <button type="button" aria-pressed="false">피보험자</button>
+          </div>
+          <div class="fp_demographic">
+            <div><b>· 연령대 비중</b>
+              <!-- [260907] 차트id -->
+              <div class="fp_demo_canvas"><canvas id="fpAgeChart" class="fp_demographic_chart" role="img"
+                  aria-label="연령대 비중"></canvas></div>
+            </div>
+            <div><b>· 직업 비중</b>
+              <!-- [260907] 차트id-->
+              <div class="fp_demo_canvas"><canvas id="fpJobChart" class="fp_demographic_chart" role="img"
+                  aria-label="직업 비중"></canvas></div>
+            </div>
+          </div>
+          <!-- [260907] -->
+          <div class="fp_legend"><span><i class="dot sky_blue"></i>모집</span><span><i class="dot chart_green"></i>전입</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <!--// contents -->
+  <script src="../resources/js/jquery-3.4.1.min.js"></script>
+  <script src="../resources/js/chart.min.js"></script>
+  <script src="../resources/js/fp_charts.js"></script>
+  <script src="../resources/js/fp.js"></script>
+</body>
+
+</html>

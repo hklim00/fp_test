@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>면담 기록 | FP 코칭 지원 AI Assistant</title>
+  <link rel="stylesheet" href="../resources/css/reset.css">
+  <link rel="stylesheet" href="../resources/css/base.css">
+  <link rel="stylesheet" href="../resources/css/fp.css">
+  <script src="../resources/js/pad-fit.js"></script>
+</head>
+<body>
+  <main id="contents"></main>
+  <div id="fpInterviewModal" class="fp_modal fp_interview_modal" role="dialog" aria-modal="true">
+    <div class="fp_modal_dialog">
+      <button type="button" class="fp_modal_close" data-modal-close aria-label="닫기"></button>
+      <h3>면담 기록 · 김교보 FP</h3>
+      <div class="fp_modal_body">
+        <div class="fp_interview_layout">
+          <aside class="fp_record_sidebar" aria-label="면담 기록 목록">
+            <div class="fp_record_inner">
+              <div class="fp_record_group">
+                <strong class="fp_record_title">2026년 7월</strong>
+                <button type="button" class="fp_record_item active"><b>2026.07.08 14:49:56</b><span>김교보 (강남지원단)</span></button>
+                <button type="button" class="fp_record_item"><b>2026.07.07 11:20:10</b><span>김교보 (강남지원단)</span></button>
+                <button type="button" class="fp_record_item"><b>2026.07.04 16:32:08</b><span>김교보 (강남지원단)</span></button>
+              </div>
+              <div class="fp_record_group">
+                <strong class="fp_record_title">2026년 6월</strong>
+                <button type="button" class="fp_record_item"><b>2026.06.24 10:15:30</b><span>김교보 (강남지원단)</span></button>
+                <button type="button" class="fp_record_item"><b>2026.06.11 13:05:42</b><span>김교보 (강남지원단)</span></button>
+              </div>
+              <p class="fp_record_empty" hidden>기록된 면담이 없습니다.</p>
+            </div>
+            <div class="fp_record_add">
+              <button type="button" class="btn_l btn_outline">+ 새 기록 추가</button>
+            </div>
+          </aside>
+          <div class="fp_record_content">
+            <p class="fp_record_date">2026.07.08 14:49:56 면담 기록입니다.</p>
+            <div class="fp_record_editor">
+              <label class="fp_sr_only" for="fpInterviewContent">면담 내용</label>
+              <div class="fp_record_textarea">
+                <textarea id="fpInterviewContent" class="fp_count_textarea" maxlength="2000" placeholder="면담 후 FP님과의 활동합의/활동지원 등을 입력하세요.">지점장 코칭 현황 점검 겸 직접 면담 진행. 판매건수·수수료 하락폭이 커서 별도로 확인. 지점장과 함께 회복 계획 재수립.</textarea>
+                <span class="fp_char_count"><b>76</b> / 2,000자</span>
+              </div>
+            </div>
+            <div class="fp_modal_actions fp_record_actions">
+              <button type="button" class="btn_l btn_primary">저장</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../resources/js/jquery-3.4.1.min.js"></script>
+  <script src="../resources/js/fp.js"></script>
+</body>
+</html>
