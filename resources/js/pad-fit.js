@@ -14,16 +14,17 @@ function isPadDevice() {
 }
 
 function shouldFitViewport(vw, vh) {
-	return isTabletFitViewport(vw, vh);
+	return isPadDevice();
+	// return isTabletFitViewport(vw, vh);
 }
 
-function isTabletFitViewport(vw, vh) {
-	// 높이 600px 제한만 해제해 가로폭이 충분한 태블릿은 낮은 화면에서도 배율을 유지합니다.
-	// 기존 최소 화면 크기 조건은 다시 필요할 때 참고할 수 있도록 남깁니다.
-	// const minDim = Math.min(vw, vh);
-	// return isPadDevice() && minDim >= 600;
-	return isPadDevice() && vw >= 600;
-}
+// function isTabletFitViewport(vw, vh) {
+// 	// 높이 600px 제한만 해제해 가로폭이 충분한 태블릿은 낮은 화면에서도 배율을 유지합니다.
+// 	// 기존 최소 화면 크기 조건은 다시 필요할 때 참고할 수 있도록 남깁니다.
+// 	// const minDim = Math.min(vw, vh);
+// 	// return isPadDevice() && minDim >= 600;
+// 	return isPadDevice() && vw >= 600;
+// }
 
 function getViewportHeight() {
 	return window.visualViewport && window.visualViewport.height
@@ -42,9 +43,9 @@ function fitFontSize() {
 	const vh = getViewportHeight();
 	const base = 10;
 	// 화면 배율 축소는 태블릿 기기에서만 적용합니다.
-	const minimumScale = 0.7;
+	// const minimumScale = 0.7;
 	// 고정 px 요소와 브라우저 소수점 반올림으로 생기는 잔여 스크롤을 방지합니다.
-	const fitSafetyRatio = 0.95;
+	const fitSafetyRatio = 0.90;
 	// 태블릿에서는 fp_director 시안(1280 × 970)의 본문 높이를 기준으로 사용합니다.
 	const referenceHeaderHeight = 60;
 	const referenceContentHeight = 970 - referenceHeaderHeight;
@@ -62,10 +63,12 @@ function fitFontSize() {
 
 	const headerHeight = getHeaderHeight();
 	const availableHeight = Math.max(vh - headerHeight, 0);
-	const scale = Math.max(
-		Math.min((availableHeight / referenceContentHeight) * fitSafetyRatio, 1),
-		minimumScale,
-	);
+	const heightScale = (availableHeight / referenceContentHeight) * fitSafetyRatio;
+	const scale = Math.min(heightScale, 1);
+	// const scale = Math.max(
+	// 	Math.min((availableHeight / referenceContentHeight) * fitSafetyRatio, 1),
+	// 	minimumScale,
+	// );
 	const fittedSize = base * scale;
 
 	const nextFontSize = fittedSize.toFixed(3) + 'px';
