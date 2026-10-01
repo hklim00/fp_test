@@ -34,8 +34,6 @@ function fitFontSize() {
 	const vh = getViewportHeight();
 	const base = 10;
 	// 화면 배율 축소는 태블릿 기기에서만 적용합니다.
-	const minimumScale = 0.6;
-	const referenceWidth = 1280;
 	// 고정 px 요소와 브라우저 소수점 반올림으로 생기는 잔여 스크롤을 방지합니다.
 	const fitSafetyRatio = 0.8;
 	// 태블릿에서는 fp_director 시안(1280 × 970)의 본문 높이를 기준으로 사용합니다.
@@ -55,13 +53,8 @@ function fitFontSize() {
 
 	const headerHeight = getHeaderHeight();
 	const availableHeight = Math.max(vh - headerHeight, 0);
-	const widthScale = (vw / referenceWidth) * fitSafetyRatio;
 	const heightScale = (availableHeight / referenceContentHeight) * fitSafetyRatio;
-	const scale = Math.min(
-		Math.max(Math.min(widthScale, heightScale), minimumScale),
-		widthScale,
-		1,
-	);
+	const scale = Math.min(heightScale, 1);
 	const fittedSize = base * scale;
 
 	const nextFontSize = fittedSize.toFixed(3) + 'px';
