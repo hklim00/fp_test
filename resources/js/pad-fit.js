@@ -18,10 +18,11 @@ function shouldFitViewport(vw, vh) {
 }
 
 function isTabletFitViewport(vw, vh) {
-	const minDim = Math.min(vw, vh);
+	// const minDim = Math.min(vw, vh);
 
-	// 기기별 viewport 너비가 달라질 수 있으므로 최대 해상도로 제한하지 않습니다.
-	return isPadDevice() && minDim >= 600;
+	// 인앱 툴바로 가용 높이가 줄어도 적용되도록 화면 크기 제한을 해제합니다.
+	// return isPadDevice() && minDim >= 600;
+	return isPadDevice();
 }
 
 function getViewportHeight() {
