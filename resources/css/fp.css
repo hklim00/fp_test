@@ -835,7 +835,7 @@ body {
 }
 .fp_chart {
 	position: relative;
-	height: 16rem;
+	height: 15rem;
 }
 .fp_chart canvas {
 	display: block;
@@ -1412,7 +1412,7 @@ body.fp_modal_open {
 	min-height: 0;
 }
 .fp_chart_column .fp_panel {
-	min-height: 28rem;
+	min-height: 25rem;
 }
 .fp_dashboard_grid > .fp_panel:first-child {
 	display: flex;

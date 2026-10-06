@@ -41,9 +41,9 @@ function fitFontSize() {
 	const vh = getViewportHeight();
 	const base = 10;
 	// 화면 배율 축소는 태블릿 기기에서만 적용합니다.
-	const minimumScale = 0.69;
+	const minimumScale = 0.65;
 	// 고정 px 요소와 브라우저 소수점 반올림으로 생기는 잔여 스크롤을 방지합니다.
-	const fitSafetyRatio = 0.95;
+	const fitSafetyRatio = 0.90;
 	// 태블릿에서는 fp_director 시안(1280 × 970)의 본문 높이를 기준으로 사용합니다.
 	const referenceHeaderHeight = 60;
 	const referenceContentHeight = 970 - referenceHeaderHeight;

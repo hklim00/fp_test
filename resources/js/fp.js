@@ -89,23 +89,44 @@ function fpHelpClose() {
 }
 
 // data-fp-tip 값으로 표와 다른 화면에서 함께 쓰는 툴팁
+let fpTipTarget;
+
 function fpSharedTooltip() {
 	if (!$('#fpSharedTooltip').length) $('<div id="fpSharedTooltip" class="fp_shared_tooltip" role="tooltip" hidden></div>').appendTo('body');
+	fpTipClose();
+	// 캡처 단계에서 표 내부의 스크롤도 감지합니다. 재초기화 시 중복 등록하지 않습니다.
+	document.removeEventListener('scroll', fpTipPosition, true);
+	document.addEventListener('scroll', fpTipPosition, true);
+	window.removeEventListener('resize', fpTipPosition);
+	window.addEventListener('resize', fpTipPosition);
 	$(document).on('mouseenter.fp click.fp', '[data-fp-tip]', function () {
-		const $tip = $('#fpSharedTooltip').text($(this).attr('data-fp-tip')).prop('hidden', false);
-		const cell = this.getBoundingClientRect();
-		const tip = $tip[0].getBoundingClientRect();
-		const left = cell.right + tip.width + 2 < window.innerWidth
-			? cell.right + 2 : cell.left - tip.width - 2;
-		$tip.css({
-			left: Math.max(8, left) + 'px',
-			top: Math.max(8, Math.min(cell.top + 6, window.innerHeight - tip.height - 8)) + 'px',
-		});
+		fpTipTarget = this;
+		$('#fpSharedTooltip').text($(this).attr('data-fp-tip')).prop('hidden', false);
+		fpTipPosition();
 	});
 	$(document).on('mouseleave.fp', '[data-fp-tip]', fpTipClose);
 }
 
+function fpTipPosition() {
+	if (!fpTipTarget) return;
+	const cell = fpTipTarget.getBoundingClientRect();
+	if (!fpTipTarget.isConnected || cell.bottom <= 0 || cell.top >= window.innerHeight ||
+		cell.right <= 0 || cell.left >= window.innerWidth) {
+		fpTipClose();
+		return;
+	}
+	const $tip = $('#fpSharedTooltip');
+	const tip = $tip[0].getBoundingClientRect();
+	const left = cell.right + tip.width + 2 < window.innerWidth
+		? cell.right + 2 : cell.left - tip.width - 2;
+	$tip.css({
+		left: Math.max(8, left) + 'px',
+		top: Math.max(8, Math.min(cell.top + 6, window.innerHeight - tip.height - 8)) + 'px',
+	});
+}
+
 function fpTipClose() {
+	fpTipTarget = null;
 	$('#fpSharedTooltip').prop('hidden', true);
 }
 
