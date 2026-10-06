@@ -835,7 +835,7 @@ body {
 }
 .fp_chart {
 	position: relative;
-	height: 15rem;
+	height: 16rem;
 }
 .fp_chart canvas {
 	display: block;
@@ -1114,7 +1114,7 @@ body.fp_modal_open {
 	width: 100%;
 	max-width: 1024px;
 	margin: 0 auto;
-	padding: 0 4rem;
+	padding: 4rem;
 }
 .fp_home_notice {
 	margin-bottom: 6rem;
@@ -1412,7 +1412,7 @@ body.fp_modal_open {
 	min-height: 0;
 }
 .fp_chart_column .fp_panel {
-	min-height: 25rem;
+	min-height: 28rem;
 }
 .fp_dashboard_grid > .fp_panel:first-child {
 	display: flex;
@@ -2288,13 +2288,20 @@ body.fp_modal_open {
 	}
 }
 html[data-fp-fitted] .fp_core_grid > *{
-	max-height: 58rem;
+	max-height: 55rem;
 }
 html[data-fp-fitted] .fp_analysis_tabs a{
 	min-height: 38px;
+	padding: .5rem 3rem;
 }
 html[data-fp-fitted] .fp_page{
 	padding: 2rem 3rem;
+}
+html[data-fp-fitted] .fp_chart_column .fp_panel {
+  min-height: 25rem;
+}
+html[data-fp-fitted] .fp_chart {
+  height: 15rem;
 }
 
 
