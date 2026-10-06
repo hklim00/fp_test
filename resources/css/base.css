@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-/* 차트 바깥 제목/범례의 공통 글자색과 글꼴 크기 변수; 캔버스 내부는 fp_charts.js에서 설정 */
 :root {
 	--fp-color-primary: #003477;
 	--fp-color-active: #083e8f;
@@ -17,7 +16,7 @@
 	--fp-tablet-header-height: 105px;
 
 	--fp-font-11: 11px;
-	/* --fp-font-12: 12px; 현재 스타일에서 참조하지 않음 */
+	--fp-font-12: 12px;
 	--fp-font-13: 13px;
 	--fp-font-14: 14px;
 	--fp-font-15: 15px;

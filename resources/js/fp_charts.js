@@ -191,7 +191,6 @@ function comparisonValueLabels(unit) {
 	};
 }
 
-// 가로 막대 차트의 값을 오른쪽 여백 안에서 우측 정렬하는 플러그인
 function horizontalValueLabels() {
 	return {
 		id: 'fpHorizontalValueLabels',

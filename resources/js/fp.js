@@ -5,6 +5,7 @@ function initializeFp() {
 	$(document).off('.fp');
 	fpSearch();
 	fpHelp();
+	fpSharedTooltip();
 	fpTarget();
 	fpModal();
 	fpTextarea();
@@ -85,6 +86,27 @@ function fpHelpPosition($tooltip) {
 
 function fpHelpClose() {
 	$('.fp_tooltip').removeClass('open');
+}
+
+// data-fp-tip 값으로 표와 다른 화면에서 함께 쓰는 툴팁
+function fpSharedTooltip() {
+	if (!$('#fpSharedTooltip').length) $('<div id="fpSharedTooltip" class="fp_shared_tooltip" role="tooltip" hidden></div>').appendTo('body');
+	$(document).on('mouseenter.fp click.fp', '[data-fp-tip]', function () {
+		const $tip = $('#fpSharedTooltip').text($(this).attr('data-fp-tip')).prop('hidden', false);
+		const cell = this.getBoundingClientRect();
+		const tip = $tip[0].getBoundingClientRect();
+		const left = cell.right + tip.width + 2 < window.innerWidth
+			? cell.right + 2 : cell.left - tip.width - 2;
+		$tip.css({
+			left: Math.max(8, left) + 'px',
+			top: Math.max(8, Math.min(cell.top + 6, window.innerHeight - tip.height - 8)) + 'px',
+		});
+	});
+	$(document).on('mouseleave.fp', '[data-fp-tip]', fpTipClose);
+}
+
+function fpTipClose() {
+	$('#fpSharedTooltip').prop('hidden', true);
 }
 
 // 대상자 보기 목록 UI
@@ -243,6 +265,7 @@ function fpOutsideClick() {
 		if (!$target.closest('.fp_content_search').length) fpSearchClose();
 		if (!$target.closest('.fp_help_wrap').length) fpHelpClose();
 		if (!$target.closest('.fp_target_wrap').length) fpTargetClose();
+		if (!$target.closest('[data-fp-tip]').length) fpTipClose();
 	});
 }
 
