@@ -1114,7 +1114,7 @@ body.fp_modal_open {
 	width: 100%;
 	max-width: 1024px;
 	margin: 0 auto;
-	padding: 4rem;
+	padding: 0 4rem;
 }
 .fp_home_notice {
 	margin-bottom: 6rem;
