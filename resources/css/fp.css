@@ -2293,6 +2293,9 @@ html[data-fp-fitted] .fp_core_grid > *{
 html[data-fp-fitted] .fp_analysis_tabs a{
 	min-height: 38px;
 }
+html[data-fp-fitted] .fp_page{
+	padding: 2rem 3rem;
+}
 
 
 @media (max-width: 1023px) {
